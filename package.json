@@ -36,6 +36,5 @@
   "dependencies": {
     "@xstate/svelte": "^3.0.3",
     "xstate": "^5.11.0"
-  },
-  "packageManager": "yarn@3.4.1"
+  }
 }
