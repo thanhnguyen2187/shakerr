@@ -30,7 +30,7 @@ export function generateUUID() {
 export function createNewItem(): Item {
   return {
     key: generateUUID(),
-    value: 'New',
+    value: '',
     textColor: '#FFFFFF',
     backgroundColor: '#000000',
   }

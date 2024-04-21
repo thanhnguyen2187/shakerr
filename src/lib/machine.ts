@@ -53,9 +53,6 @@ export const machine = createMachine({
     Functioning: {
       initial: 'Transient',
       on: {
-        'Open Settings': {
-          target: 'Settings',
-        },
       },
       states: {
         'Transient': {
@@ -71,11 +68,20 @@ export const machine = createMachine({
             },
           ],
         },
-        'No Data': {},
+        'No Data': {
+          on: {
+            'Open Settings': {
+              target: '#Shakerr.Settings',
+            },
+          }
+        },
         'No Result': {
           on: {
             Shaked: {
               target: 'Shaking',
+            },
+            'Open Settings': {
+              target: '#Shakerr.Settings',
             },
           },
         },
@@ -100,7 +106,15 @@ export const machine = createMachine({
             500: {
               actions: assign({
                 shakingBuiltMs: ({context}) => context.shakingBuiltMs + context.shakingUnitMs,
-                pickedIndex: ({context}) => Math.floor(Math.random() * context.items.length),
+                pickedIndex: ({context}) => {
+                  while (true) {
+                    const newIndex = Math.floor(Math.random() * context.items.length)
+                    if (newIndex === context.pickedIndex) {
+                      continue
+                    }
+                    return newIndex
+                  }
+                },
               }),
               target: 'Shaking',
               reenter: true,
@@ -109,6 +123,9 @@ export const machine = createMachine({
         },
         'Show Result': {
           on: {
+            'Open Settings': {
+              target: '#Shakerr.Settings',
+            },
             Shaked: {
               actions: assign({
                 shakingBuiltMs: () => 0,
