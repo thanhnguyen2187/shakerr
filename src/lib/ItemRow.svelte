@@ -10,7 +10,7 @@
     <input
       class="input"
       type="text"
-      placeholder="Text"
+      placeholder=""
       bind:value={item.value}
     />
   </td>
@@ -34,7 +34,7 @@
       style="color: {item.textColor}; background-color: {item.backgroundColor}"
     >
       {#if item.value}
-        {item.value}
+        text
       {:else}
         {@html '\&nbsp\;'}
       {/if}
