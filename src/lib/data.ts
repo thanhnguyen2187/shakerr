@@ -1,4 +1,6 @@
 import { browser } from '$app/environment'
+import { generateColors, generateNiceColor } from '$lib/colors'
+import tinycolor from 'tinycolor2'
 
 export type Item = {
   key: string
@@ -28,11 +30,11 @@ export function generateUUID() {
 }
 
 export function createNewItem(): Item {
-  const colors = generateColorPalette(2)
+  const colors = generateColors()
   return {
     key: generateUUID(),
     value: '',
-    textColor: colors[0],
-    backgroundColor: colors[1],
+    textColor: colors[0].toHexString(),
+    backgroundColor: colors[1].toHexString(),
   }
 }
