@@ -52,8 +52,6 @@ export const machine = createMachine({
     },
     Functioning: {
       initial: 'Transient',
-      on: {
-      },
       states: {
         'Transient': {
           always: [
@@ -164,6 +162,8 @@ export const machine = createMachine({
               saveItems(event.items)
               return event.items
             },
+            pickedIndex: -1,
+            shakingBuiltMs: 0,
           }),
         },
       },
