@@ -28,10 +28,11 @@ export function generateUUID() {
 }
 
 export function createNewItem(): Item {
+  const colors = generateColorPalette(2)
   return {
     key: generateUUID(),
     value: '',
-    textColor: '#FFFFFF',
-    backgroundColor: '#000000',
+    textColor: colors[0],
+    backgroundColor: colors[1],
   }
 }
