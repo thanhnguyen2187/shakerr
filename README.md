@@ -1,7 +1,7 @@
 # Shakerr
 
-Want to decide between something and something else but unsure what to do? Don't
-worry. Just fire up your browser, open the application at
+Want to decide between seemingly undecidable options but unsure what to do?
+Don't worry! Just fire up your browser, open the application at
 https://shakerr.pages.dev, input the options, and shake it!
 
 Demonstration of Shakerr's answer to life's meaning:
